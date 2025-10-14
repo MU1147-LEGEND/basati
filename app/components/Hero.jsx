@@ -43,14 +43,14 @@ export function Hero() {
                     <Button
                         size="lg"
                         variant="outline"
-                        className="border-white text-white hover:bg-white/10"
+                        className="border-white text-black hover:text-white hover:bg-white/10"
                     >
                         Contact Admissions
                     </Button>
                 </div>
 
                 {/* Stats */}
-                <div className="grid grid-cols-3 gap-6 mt-16 max-w-3xl mx-auto">
+                <div className="grid lg:grid-cols-3 grid-cols-1 gap-6 my-16 max-w-3xl mx-auto">
                     <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
                         <div className="text-4xl text-yellow-400 mb-2">3</div>
                         <div className="text-white/90 text-center">

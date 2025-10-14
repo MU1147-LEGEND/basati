@@ -8,6 +8,7 @@ import {
     Linkedin,
     Youtube,
 } from "lucide-react";
+import Link from "next/link";
 
 export function Footer() {
     return (
@@ -32,30 +33,31 @@ export function Footer() {
                             2010.
                         </p>
                         <div className="flex gap-3">
-                            <a
-                                href="#"
+                            <Link
+                                target="_blank"
+                                href="https://www.facebook.com/profile.php?id=100067697406685"
                                 className="w-9 h-9 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors"
                             >
                                 <Facebook className="w-4 h-4" />
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 href="#"
                                 className="w-9 h-9 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors"
                             >
                                 <Twitter className="w-4 h-4" />
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 href="#"
                                 className="w-9 h-9 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors"
                             >
                                 <Linkedin className="w-4 h-4" />
-                            </a>
-                            <a
+                            </Link>
+                            <Link
                                 href="#"
                                 className="w-9 h-9 bg-gray-800 hover:bg-blue-600 rounded-lg flex items-center justify-center transition-colors"
                             >
                                 <Youtube className="w-4 h-4" />
-                            </a>
+                            </Link>
                         </div>
                     </div>
 
