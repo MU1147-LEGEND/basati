@@ -8,7 +8,7 @@ export function Hero() {
             {/* Background Image with Overlay */}
             <div className="absolute inset-0 z-0">
                 <ImageWithFallback
-                    src="https://images.unsplash.com/photo-1619070284836-e850273d69ac?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb2x5dGVjaG5pYyUyMHRlY2hub2xvZ3klMjBjYW1wdXN8ZW58MXx8fHwxNzYwMzUwNzk3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
+                    src="basati-gate.webp"
                     alt="Campus"
                     className="w-full h-full object-cover"
                 />
@@ -43,7 +43,7 @@ export function Hero() {
                     <Button
                         size="lg"
                         variant="outline"
-                        className="border-white text-black hover:text-white hover:bg-white/10"
+                        className="border-white text-black hover:text-white hover:bg-white/10 dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:text-black dark:hover:bg-gray-300"
                     >
                         Contact Admissions
                     </Button>
@@ -51,7 +51,7 @@ export function Hero() {
 
                 {/* Stats */}
                 <div className="grid lg:grid-cols-3 grid-cols-1 gap-6 my-16 max-w-3xl mx-auto">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20 dark:border-gray-700">
                         <div className="text-4xl text-yellow-400 mb-2">3</div>
                         <div className="text-white/90 text-center">
                             Departments

@@ -9,6 +9,7 @@ import {
     Youtube,
 } from "lucide-react";
 import Link from "next/link";
+import { ThemeToggle } from "./ThemeToggle";
 
 export function Footer() {
     return (
@@ -179,7 +180,10 @@ export function Footer() {
                         <p className="text-gray-400 text-sm">
                             © 2025 Polytechnic Institute. All rights reserved.
                         </p>
-                        <div className="flex gap-6">
+                        <div className="flex gap-6 items-center">
+                            <span>
+                                <ThemeToggle />
+                            </span>
                             <a
                                 href="#"
                                 className="text-gray-400 hover:text-white text-sm transition-colors"
