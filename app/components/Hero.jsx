@@ -1,6 +1,6 @@
+import { ArrowRight, GraduationCap } from "lucide-react";
+import { ImageWithFallback } from "./fallback/ImageWithFallback";
 import { Button } from "./ui/button";
-import { GraduationCap, ArrowRight } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 export function Hero() {
     return (
@@ -22,7 +22,7 @@ export function Hero() {
                     <span className="text-white/90">Established 2010</span>
                 </div>
 
-                <h1 className="text-4xl md:text-5xl lg:text-6xl text-white mb-6 max-w-4xl mx-auto">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 max-w-4xl mx-auto">
                     Badiul Alam Science and Technology Institute
                 </h1>
 

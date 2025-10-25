@@ -3,6 +3,7 @@ import "./globals.css";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { ThemeProvider } from "./components/ThemeProvider";
+import MouseGlowEffect from "./components/MouseGlowEffect";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({ children }) {
                         <Header />
                         {children}
                         <Footer />
+                        <MouseGlowEffect />
                     </div>
                 </ThemeProvider>
             </body>

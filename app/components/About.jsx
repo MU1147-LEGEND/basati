@@ -14,7 +14,7 @@ export function About() {
                     <Badge className="mb-4 bg-green-100 text-green-700 ">
                         About Us
                     </Badge>
-                    <h2 className="text-3xl md:text-4xl text-gray-900 dark:text-gray-100 mb-4">
+                    <h2 className="text-3xl md:text-4xl text-gray-900 font-extrabold dark:text-gray-100 mb-4">
                         Leading Technical Education Since 2010
                     </h2>
                     <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">

@@ -4,17 +4,17 @@ import { Card } from "./ui/card";
 
 export function Facilities() {
     return (
-        <section id="facilities" className="py-20 bg-gray-50">
+        <section id="facilities" className="py-20 bg-gray-50 dark:bg-gray-900">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="text-center mb-12">
-                    <Badge className="mb-4 bg-orange-100 text-orange-700">
+                    <Badge className="mb-4 bg-orange-100 text-orange-700 border-orange-300">
                         Campus Facilities
                     </Badge>
-                    <h2 className="text-3xl md:text-4xl text-gray-900 mb-4">
+                    <h2 className="text-3xl md:text-4xl text-gray-900 mb-4 font-extrabold dark:text-white">
                         World-Class Infrastructure
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
                         Our campus is equipped with modern facilities and
                         state-of-the-art laboratories to provide hands-on
                         learning experience.
@@ -28,20 +28,20 @@ export function Facilities() {
                         return (
                             <Card
                                 key={facility.id}
-                                className="p-6 hover:shadow-lg transition-shadow duration-300"
+                                className="p-6  transition-all border-gray-200 dark:border-gray-700 dark:bg-gray-800 dark:hover:border-stone-500 duration-300"
                             >
                                 <div className="flex items-start gap-4 mb-4">
                                     <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
                                         <Icon className="w-6 h-6 text-white" />
                                     </div>
                                     <div>
-                                        <h3 className="text-gray-900 mb-2">
+                                        <h3 className="text-gray-900 dark:text-white mb-2">
                                             {facility.name}
                                         </h3>
                                     </div>
                                 </div>
 
-                                <p className="text-gray-600 mb-4">
+                                <p className="text-gray-600 dark:text-gray-300 mb-4">
                                     {facility.description}
                                 </p>
 
@@ -49,7 +49,7 @@ export function Facilities() {
                                     {facility.features.map((feature, idx) => (
                                         <li
                                             key={idx}
-                                            className="flex items-center gap-2 text-sm text-gray-600"
+                                            className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-300"
                                         >
                                             <div className="w-1.5 h-1.5 bg-blue-600 rounded-full"></div>
                                             {feature}

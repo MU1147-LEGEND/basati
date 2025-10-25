@@ -1,84 +1,22 @@
-import { Card } from "./ui/card";
+import { Award, BookOpen, Mail } from "lucide-react";
+import { faculty_teachers } from "../data/faculty";
+import { ImageWithFallback } from "./fallback/ImageWithFallback";
 import { Badge } from "./ui/badge";
-import { Mail, Award, BookOpen } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
-
-const faculty = [
-    {
-        id: 1,
-        name: "Dr. Mohammad Rahman",
-        position: "Principal & Head of Computer Department",
-        education: "PhD in Computer Science",
-        specialization: "Artificial Intelligence & Machine Learning",
-        email: "m.rahman@basti.edu",
-        experience: "15+ years",
-        courses: ["Advanced Programming", "Database Systems"],
-    },
-    {
-        id: 2,
-        name: "Engr. Fatima Begum",
-        position: "Head of Civil Department",
-        education: "M.Sc in Civil Engineering",
-        specialization: "Structural Engineering & Design",
-        email: "f.begum@basti.edu",
-        experience: "12+ years",
-        courses: ["Structural Analysis", "Construction Management"],
-    },
-    {
-        id: 3,
-        name: "Engr. Kamal Hassan",
-        position: "Head of Electrical Department",
-        education: "M.Sc in Electrical Engineering",
-        specialization: "Power Systems & Renewable Energy",
-        email: "k.hassan@basti.edu",
-        experience: "14+ years",
-        courses: ["Power Electronics", "Control Systems"],
-    },
-    {
-        id: 4,
-        name: "Prof. Ayesha Khan",
-        position: "Senior Lecturer - Computer",
-        education: "M.Sc in Software Engineering",
-        specialization: "Web Development & Mobile Apps",
-        email: "a.khan@basti.edu",
-        experience: "10+ years",
-        courses: ["Web Technologies", "Mobile Development"],
-    },
-    {
-        id: 5,
-        name: "Engr. Sabbir Ahmed",
-        position: "Lecturer - Civil",
-        education: "B.Sc in Civil Engineering",
-        specialization: "Surveying & Geotechnical",
-        email: "s.ahmed@basti.edu",
-        experience: "8+ years",
-        courses: ["Surveying", "Soil Mechanics"],
-    },
-    {
-        id: 6,
-        name: "Engr. Nazia Sultana",
-        position: "Lecturer - Electrical",
-        education: "M.Sc in Electronics",
-        specialization: "Electronics & Automation",
-        email: "n.sultana@basti.edu",
-        experience: "9+ years",
-        courses: ["Digital Electronics", "Industrial Automation"],
-    },
-];
+import { Card } from "./ui/card";
 
 export function Faculty() {
     return (
-        <section id="faculty" className="py-20 bg-white">
+        <section id="faculty" className="py-20 bg-white dark:bg-gray-900/75">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Section Header */}
                 <div className="text-center mb-12">
                     <Badge className="mb-4 bg-purple-100 text-purple-700">
                         Our Faculty
                     </Badge>
-                    <h2 className="text-3xl md:text-4xl text-gray-900 mb-4">
+                    <h2 className="text-3xl md:text-4xl text-gray-900 mb-4 font-extrabold dark:text-white">
                         Meet Our Expert Educators
                     </h2>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
                         Learn from experienced professionals dedicated to
                         nurturing the next generation of engineers and
                         technologists.
@@ -87,32 +25,40 @@ export function Faculty() {
 
                 {/* Faculty Grid */}
                 <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {faculty.map((member) => (
+                    {faculty_teachers.map((member) => (
                         <Card
                             key={member.id}
-                            className="overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                            className="overflow-hidden transition-all dark:border-gray-700 dark:bg-gray-800 dark:hover:border-stone-500 duration-300"
                         >
                             <div className="p-6">
                                 {/* Avatar */}
                                 <div className="flex items-start gap-4 mb-4">
                                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center flex-shrink-0">
-                                        <span className="text-white text-xl">
-                                            {member.name
-                                                .split(" ")
-                                                .map((n) => n[0])
-                                                .join("")}
-                                        </span>
+                                        {member.avatar ? (
+                                            <ImageWithFallback
+                                                src={member.avatar}
+                                                alt={member.name}
+                                                className="w-16 h-16 rounded-full object-cover"
+                                            />
+                                        ) : (
+                                            <span className="text-white text-xl">
+                                                {member.name
+                                                    .split(" ")
+                                                    .map((n) => n[0])
+                                                    .join("")}
+                                            </span>
+                                        )}
                                     </div>
                                     <div className="flex-1 min-w-0">
-                                        <h3 className="text-gray-900 mb-1 truncate">
+                                        <h3 className="text-gray-900 dark:text-white mb-1 truncate">
                                             {member.name}
                                         </h3>
-                                        <p className="text-sm text-gray-600 mb-2">
+                                        <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
                                             {member.position}
                                         </p>
                                         <Badge
                                             variant="secondary"
-                                            className="text-xs"
+                                            className="text-xs dark:bg-gray-700"
                                         >
                                             {member.experience}
                                         </Badge>
@@ -124,10 +70,10 @@ export function Faculty() {
                                     <div className="flex items-start gap-2">
                                         <Award className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
                                         <div className="text-sm">
-                                            <div className="text-gray-900">
+                                            <div className="text-gray-900 dark:text-white">
                                                 {member.education}
                                             </div>
-                                            <div className="text-gray-600">
+                                            <div className="text-gray-600 dark:text-gray-300">
                                                 {member.specialization}
                                             </div>
                                         </div>
@@ -135,20 +81,20 @@ export function Faculty() {
 
                                     <div className="flex items-start gap-2">
                                         <BookOpen className="w-4 h-4 text-blue-600 mt-0.5 flex-shrink-0" />
-                                        <div className="text-sm text-gray-600">
+                                        <div className="text-sm text-gray-600 dark:text-gray-300">
                                             {member.courses.join(", ")}
                                         </div>
                                     </div>
                                 </div>
 
                                 {/* Contact */}
-                                <div className="pt-4 border-t border-gray-200">
+                                <div className="pt-4 border-t border-gray-200 z-50">
                                     <a
                                         href={`mailto:${member.email}`}
-                                        className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 transition-colors"
+                                        className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 transition-colors"
                                     >
                                         <Mail className="w-4 h-4" />
-                                        <span className="truncate">
+                                        <span className="truncate z-[999] ">
                                             {member.email}
                                         </span>
                                     </a>

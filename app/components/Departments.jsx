@@ -1,8 +1,8 @@
-import { Card } from "./ui/card";
-import { Badge } from "./ui/badge";
-import { Monitor, Building2, Zap, Users, BookOpen, Award } from "lucide-react";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { Award, BookOpen, Users } from "lucide-react";
 import { departments } from "../data/departments";
+import { ImageWithFallback } from "./fallback/ImageWithFallback";
+import { Badge } from "./ui/badge";
+import { Card } from "./ui/card";
 
 export function Departments() {
     return (
@@ -16,7 +16,7 @@ export function Departments() {
                     <Badge className="mb-4 bg-blue-100 text-blue-700">
                         Our Departments
                     </Badge>
-                    <h2 className="text-3xl md:text-4xl text-gray-900 mb-4 dark:text-gray-100">
+                    <h2 className="text-3xl md:text-4xl text-gray-900 mb-4 font-extrabold dark:text-gray-100">
                         Excellence in Technical Education
                     </h2>
                     <p className="text-xl text-gray-600 max-w-2xl mx-auto dark:text-gray-300">
@@ -33,7 +33,7 @@ export function Departments() {
                         return (
                             <Card
                                 key={dept.id}
-                                className="overflow-hidden hover:shadow-xl transition-shadow duration-300 group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
+                                className="overflow-hidden transition-all duration-300 group bg-white dark:hover:border-stone-500 dark:bg-gray-800 border border-gray-200 dark:border-gray-700"
                             >
                                 {/* Image */}
                                 <div className="relative h-48 overflow-hidden">
