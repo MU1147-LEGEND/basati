@@ -1,8 +1,6 @@
-import { Card } from "./ui/card";
+import { Bell, Clock } from "lucide-react";
 import { Badge } from "./ui/badge";
-import { Bell, Calendar, AlertCircle, Megaphone, Clock } from "lucide-react";
-
-
+import { Card } from "./ui/card";
 
 const typeColors = {
     Academic: "bg-blue-100 text-blue-700 border-blue-200",

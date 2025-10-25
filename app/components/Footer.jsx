@@ -1,11 +1,11 @@
 import {
+    Facebook,
     GraduationCap,
+    Linkedin,
+    Mail,
     MapPin,
     Phone,
-    Mail,
-    Facebook,
     Twitter,
-    Linkedin,
     Youtube,
 } from "lucide-react";
 import Link from "next/link";

@@ -1,6 +1,6 @@
-import { Card } from "./ui/card";
+import { Award, BookOpen, Eye, Target, TrendingUp, Users } from "lucide-react";
 import { Badge } from "./ui/badge";
-import { Target, Eye, Award, Users, BookOpen, TrendingUp } from "lucide-react";
+import { Card } from "./ui/card";
 
 export function About() {
     return (

@@ -1,15 +1,8 @@
-import { Card } from "./ui/card";
+import { ArrowRight, CheckCircle } from "lucide-react";
+import { admissionSteps, requirements } from "../data/admission";
 import { Badge } from "./ui/badge";
 import { Button } from "./ui/button";
-import {
-    FileText,
-    CheckCircle,
-    Calendar,
-    Users,
-    ArrowRight,
-} from "lucide-react";
-import { admissionSteps } from "../data/admission";
-import { requirements } from "../data/admission";
+import { Card } from "./ui/card";
 
 export function Admissions() {
     return (
