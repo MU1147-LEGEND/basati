@@ -1,11 +1,4 @@
-import { Badge } from "../components/ui/badge";
-import {
-    FileText,
-    CheckCircle,
-    Calendar,
-    Users,
-    ArrowRight,
-} from "lucide-react";
+import { Calendar, CheckCircle, FileText, Users } from "lucide-react";
 
 export const admissionSteps = [
     {
@@ -37,7 +30,7 @@ export const admissionSteps = [
 
 export const requirements = [
     "Secondary School Certificate (SSC) or equivalent",
-    "Minimum GPA of 2.5 in SSC",
+    "Minimum GPA of 2.00 in SSC",
     "Mathematics and English proficiency",
     "Passport-size photographs",
     "Birth certificate and national ID",
