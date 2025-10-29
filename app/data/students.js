@@ -1,0 +1,42 @@
+export const students = [
+    {
+        id: 1,
+        name: "Aisha Khan",
+        department: "Computer Science",
+        roll: "2023001",
+        semester: "3rd",
+        email: "aisha.khan@example.com",
+    },
+    {
+        id: 2,
+        name: "Rahim Ahmed",
+        department: "Civil Engineering",
+        roll: "2023002",
+        semester: "4th",
+        email: "rahim.ahmed@example.com",
+    },
+    {
+        id: 3,
+        name: "Sara Begum",
+        department: "Electrical Engineering",
+        roll: "2023003",
+        semester: "3rd",
+        email: "sara.begum@example.com",
+    },
+    {
+        id: 4,
+        name: "Imran Hossain",
+        department: "Computer Science",
+        roll: "2023004",
+        semester: "5th",
+        email: "imran.hossain@example.com",
+    },
+    {
+        id: 5,
+        name: "Nusrat Jahan",
+        department: "Civil Engineering",
+        roll: "2023005",
+        semester: "2nd",
+        email: "nusrat.jahan@example.com",
+    },
+];

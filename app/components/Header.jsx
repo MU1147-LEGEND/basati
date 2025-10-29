@@ -1,15 +1,27 @@
 "use client";
 import { GraduationCap, Menu } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { Button } from "./ui/button";
 
 export function Header() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+    const headerRef = useRef(null);
+
+    useEffect(() => {
+        const headerElement = headerRef.current;
+        if (headerElement) {
+            const { height } = headerElement.getBoundingClientRect();
+            document.documentElement.style.setProperty("--header-height", `${height}px`);
+        }
+    }, []);
 
     return (
-        <header className="fixed top-0 left-0 right-0 z-50 bg-background/50 backdrop-blur-sm border-b border-border">
+        <header
+            className="fixed top-0 left-0 right-0 z-50 bg-background backdrop-blur-sm border-b border-border"
+            ref={headerRef}
+        >
             <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-16">
                     {/* Logo */}

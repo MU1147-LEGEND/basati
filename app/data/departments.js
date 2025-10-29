@@ -4,6 +4,7 @@ export const departments = [
     {
         id: 1,
         name: "Computer Science",
+        department_id: "68ff49d910660ce433072324",
         icon: Monitor,
         color: "from-blue-500 via-purple-400 to-cyan-500",
         image: "https://theeventchronicle.com/wp-content/uploads/2021/04/program-bachelor-of-science-in-computer-science-1920x1080-1.jpg",
@@ -15,6 +16,7 @@ export const departments = [
     {
         id: 2,
         name: "Civil Technology",
+        department_id: "68ff4574750735e13123dc31",
         icon: Building2,
         color: "from-orange-500 via-yellow-500 to-red-500",
         image: "https://nileuniversity.edu.ng/wp-content/uploads/civil-eng-dept.jpg",
@@ -26,6 +28,7 @@ export const departments = [
     {
         id: 3,
         name: "Electrical Technology",
+        department_id: "68ff45dc750735e13123dc32",
         icon: Zap,
         color: "from-yellow-500 via-orange-500 to-red-500",
         image: "https://engineering-jobs.theiet.org/getasset/85bead92-2e44-4692-b579-3ddf03a9a84b/",

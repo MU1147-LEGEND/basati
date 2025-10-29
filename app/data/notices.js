@@ -5,7 +5,7 @@ export const notices = [
         id: 1,
         type: "Academic",
         title: "Mid-Term Examination Schedule Released",
-        date: "October 12, 2025",
+        date: "October 26, 2025",
         description:
             "The mid-term examination schedule for all departments has been published. Students are advised to check their respective department notice boards for detailed timetables.",
         urgent: true,

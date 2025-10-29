@@ -1,9 +1,10 @@
 import { Geist, Geist_Mono } from "next/font/google";
-import { Footer } from "./components/Footer";
-import { Header } from "./components/Header";
-import MouseGlowEffect from "./components/MouseGlowEffect";
-import { ThemeProvider } from "./components/ThemeProvider";
 import "./globals.css";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
+import { ThemeProvider } from "./components/ThemeProvider";
+import MouseGlowEffect from "./components/MouseGlowEffect";
+import { Toaster } from "react-hot-toast";
 
 const geistSans = Geist({
     variable: "--font-geist-sans",
@@ -25,7 +26,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="en" data-scroll-behavior="smooth" suppressHydrationWarning>
             <body
                 className={`${geistSans.variable} ${geistMono.variable} antialiased`}
             >
@@ -33,10 +34,13 @@ export default function RootLayout({ children }) {
                     attribute="class"
                     defaultTheme="light"
                     enableSystem={false}
-                    disableTransitionOnChange
+                    // disableTransitionOnChange
                 >
-                    <div className="min-h-screen bg-background">
-                        <Header />
+                    <Header />
+                    <div
+                        className="min-h-screen bg-background"
+                        style={{ paddingTop: "var(--header-height)" }}
+                    >
                         {children}
                         <Footer />
                         <MouseGlowEffect />

@@ -216,6 +216,7 @@ html {
     mask-composite: exclude;
     z-index: 1;
     transition: background 0.1s linear;
+    pointer-events: none;
 }
 
 .card::after {
@@ -229,6 +230,7 @@ html {
         transparent 80%
     );
     z-index: 2;
+    pointer-events: none;
 }
 
 .card-content {

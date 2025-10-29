@@ -1,6 +1,5 @@
 import { Bell, Clock } from "lucide-react";
 import { Badge } from "../components/ui/badge";
-import { Card } from "../components/ui/card";
 import { notices } from "../data/notices";
 
 const typeColors = {
@@ -9,23 +8,124 @@ const typeColors = {
     Announcement: "bg-purple-100 text-purple-700 border-purple-200",
 };
 
+// Generate structured data for SEO
+const generateStructuredData = () => {
+    return {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        name: "Basati Notices & Announcements",
+        description:
+            "Stay updated with the latest BASATI notices including academic announcements, holidays, and important institute updates.",
+        url: "https://basati.edu.bd/notices",
+        inLanguage: "en",
+        isPartOf: {
+            "@type": "WebSite",
+            name: "BASATI - Badiul Alam Science and Technology Institute",
+            url: "https://basati.edu.bd",
+        },
+        breadcrumb: {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: "https://basati.edu.bd",
+                },
+                {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: "Notices",
+                    item: "https://basati.edu.bd/notices",
+                },
+            ],
+        },
+        mainEntity: {
+            "@type": "CollectionPage",
+            numberOfItems: notices.length,
+        },
+    };
+};
+
+export const metadata = {
+    title: "Basati Notices & Announcements | Latest Institute Updates",
+    description:
+        "Get the latest BASATI notices including academic announcements, exam schedules, holidays, and important institute updates. Stay informed about all BASATI notices and deadlines.",
+    keywords: [
+        "basati notices",
+        "basati announcement",
+        "basati academic notices",
+        "basati institute updates",
+        "basati exam schedule",
+        "basati holiday schedule",
+    ],
+    openGraph: {
+        title: "Basati Notices & Announcements | Latest Institute Updates",
+        description:
+            "Stay updated with the latest BASATI notices, academic announcements, holidays, and important institute updates.",
+        url: "https://basati.edu.bd/notices",
+        siteName: "BASATI - Badiul Alam Science and Technology Institute",
+        locale: "en_US",
+        type: "website",
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Basati Notices & Announcements | Latest Institute Updates",
+        description:
+            "Stay updated with the latest BASATI notices, academic announcements, and important updates.",
+    },
+    alternates: {
+        canonical: "https://basati.edu.bd/notices",
+    },
+};
+
 export default function Notice() {
+    const structuredData = generateStructuredData();
+
     return (
-        <div className="min-h-screen bg-gray-50 dark:bg-gray-900 mt-10">
+        <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+            {/* Structured Data for SEO */}
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: JSON.stringify(structuredData),
+                }}
+            />
+
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 {/* Page Header */}
-                <div className="text-center mb-12">
+                <header className="text-center mb-12">
                     <div className="flex items-center justify-center gap-3 mb-4">
                         <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-purple-600 rounded-lg flex items-center justify-center">
                             <Bell className="w-6 h-6 text-white" />
                         </div>
                         <h1 className="text-3xl md:text-4xl lg:text-5xl text-gray-900 font-extrabold dark:text-gray-100">
-                            Notices & Announcements
+                            BASATI Notices & Announcements
                         </h1>
                     </div>
                     <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-                        Stay updated with the latest academic notices, holidays,
-                        and important announcements from the institute.
+                        Access the latest <strong>BASATI notices</strong>{" "}
+                        including academic announcements, exam schedules,
+                        holidays, and important updates from Badiul Alam Science
+                        and Technology Institute.
+                    </p>
+                </header>
+
+                {/* Informational Section for SEO */}
+                <div className="mb-8 bg-white dark:bg-gray-800 rounded-lg p-6 border border-gray-200 dark:border-gray-700">
+                    <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                        Welcome to the official <strong>BASATI notices</strong>{" "}
+                        page, your central hub for all important announcements
+                        from Badiul Alam Science and Technology Institute. Here
+                        you'll find the latest <strong>BASATI notices</strong>
+                        covering academic updates, exam schedules, holiday
+                        information, departmental announcements, and
+                        institutional news. Our <strong>
+                            BASATI notices
+                        </strong>{" "}
+                        are regularly updated to keep students, faculty, and
+                        staff informed about all critical information and
+                        upcoming events at the institute.
                     </p>
                 </div>
 
@@ -55,55 +155,81 @@ export default function Notice() {
                 </div>
 
                 {/* Notices Grid */}
-                <div className="grid md:grid-cols-2 gap-6">
+                <section
+                    aria-label="Latest BASATI Notices"
+                    className="grid md:grid-cols-2 gap-6"
+                >
                     {notices.map((notice) => {
                         const Icon = notice.icon;
                         return (
-                            <Card
+                            <article
                                 key={notice.id}
-                                className={`p-6 dark:bg-gray-800 ${
-                                    notice.urgent
-                                        ? "border-l-4 border-l-red-500"
-                                        : ""
-                                }`}
+                                itemScope
+                                itemType="https://schema.org/Announcement"
                             >
-                                <div className="flex items-start gap-4 mb-4">
-                                    <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                                        <Icon className="w-6 h-6 text-white" />
-                                    </div>
-                                    <div className="flex-1">
-                                        <div className="flex items-center gap-2 mb-2">
-                                            <Badge
-                                                className={
-                                                    typeColors[notice.type]
-                                                }
-                                            >
-                                                {notice.type}
-                                            </Badge>
-                                            {notice.urgent && (
-                                                <Badge className="bg-red-100 text-red-700 border-red-200 ">
-                                                    Urgent
-                                                </Badge>
-                                            )}
+                                <div
+                                    className={`dark:bg-gray-800 p-6 rounded-lg border dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow ${
+                                        notice.urgent
+                                            ? "border-l-4 border-l-red-500"
+                                            : ""
+                                    }`}
+                                >
+                                    <div className="flex items-start gap-4 mb-4">
+                                        <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
+                                            <Icon
+                                                className="w-6 h-6 text-white"
+                                                aria-hidden="true"
+                                            />
                                         </div>
-                                        <h3 className="text-xl text-gray-900 dark:text-gray-100 mb-2">
-                                            {notice.title}
-                                        </h3>
+                                        <div className="flex-1">
+                                            <div className="flex items-center gap-2 mb-2">
+                                                <Badge
+                                                    className={
+                                                        typeColors[notice.type]
+                                                    }
+                                                    itemProp="category"
+                                                >
+                                                    {notice.type}
+                                                </Badge>
+                                                {notice.urgent && (
+                                                    <Badge className="bg-red-100 text-red-700 border-red-200">
+                                                        Urgent
+                                                    </Badge>
+                                                )}
+                                            </div>
+                                            <h2
+                                                className="text-xl text-gray-900 dark:text-gray-100 mb-2"
+                                                itemProp="headline"
+                                            >
+                                                {notice.title}
+                                            </h2>
+                                        </div>
+                                    </div>
+
+                                    <p
+                                        className="text-gray-700 dark:text-gray-300 mb-4"
+                                        itemProp="text"
+                                    >
+                                        {notice.description}
+                                    </p>
+
+                                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                                        <Clock
+                                            className="w-4 h-4"
+                                            aria-hidden="true"
+                                        />
+                                        <time
+                                            dateTime={notice.date}
+                                            itemProp="datePublished"
+                                        >
+                                            Posted on {notice.date}
+                                        </time>
                                     </div>
                                 </div>
-
-                                <p className="text-gray-700 dark:text-gray-300 mb-4">
-                                    {notice.description}
-                                </p>
-
-                                <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                                    <Clock className="w-4 h-4" />
-                                    <span>Posted on {notice.date}</span>
-                                </div>
-                            </Card>
+                            </article>
                         );
                     })}
-                </div>
+                </section>
 
                 {/* Contact Info */}
                 <div className="mt-12 bg-blue-50 border border-blue-200 dark:bg-gray-800 dark:border-gray-600 rounded-lg p-6 text-center">
