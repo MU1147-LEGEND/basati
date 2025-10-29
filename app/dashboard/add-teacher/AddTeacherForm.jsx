@@ -22,8 +22,10 @@ import {
 } from "../../components/ui/select";
 import { Textarea } from "../../components/ui/textarea";
 import { departments } from "../../data/departments";
+import { useFormStatus } from "react-dom";
+import AddTeacherBTN from "./AddTeacherBTN";
 
-export default function AddTeacherForm({ addTeacherAction }) {
+export default function AddTeacherForm({ addTeacherAction, pending }) {
     const [selectedDepartment, setSelectedDepartment] = useState("");
     const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
     const [isUploading, setIsUploading] = useState(false);
@@ -264,13 +266,7 @@ export default function AddTeacherForm({ addTeacherAction }) {
                             <Button variant="outline" asChild>
                                 <Link href="/dashboard">Cancel</Link>
                             </Button>
-                            <Button
-                                type="submit"
-                                className="bg-blue-600 hover:bg-blue-700 text-white"
-                                disabled={isUploading}
-                            >
-                                Add Teacher
-                            </Button>
+                            <AddTeacherBTN isUploading={isUploading} />
                         </div>
                     </form>
                 </CardContent>
