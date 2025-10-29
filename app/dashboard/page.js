@@ -120,7 +120,14 @@ const AdminDashboard = () => {
                             {totalNotices}
                         </div>
                         <p className="text-xs text-muted-foreground">
-                            {notices.filter((n) => new Date(n.date) > Date.now() - 7 * 24 * 60 * 60 * 1000).length} new this week
+                            {
+                                notices.filter(
+                                    (n) =>
+                                        new Date(n.date) >
+                                        Date.now() - 7 * 24 * 60 * 60 * 1000
+                                ).length
+                            }{" "}
+                            new this week
                         </p>
                     </CardContent>
                 </Card>

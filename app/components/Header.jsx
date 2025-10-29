@@ -1,7 +1,7 @@
 "use client";
 import { GraduationCap, Menu } from "lucide-react";
 import Link from "next/link";
-import { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
 import { Button } from "./ui/button";
 
@@ -13,7 +13,10 @@ export function Header() {
         const headerElement = headerRef.current;
         if (headerElement) {
             const { height } = headerElement.getBoundingClientRect();
-            document.documentElement.style.setProperty("--header-height", `${height}px`);
+            document.documentElement.style.setProperty(
+                "--header-height",
+                `${height}px`
+            );
         }
     }, []);
 

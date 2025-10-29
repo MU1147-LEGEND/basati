@@ -1,10 +1,10 @@
 import {
+    FlaskConical,
     Laptop,
-    Wrench,
-    Zap,
     Library,
     Microscope,
-    FlaskConical,
+    Wrench,
+    Zap,
 } from "lucide-react";
 
 export const facilities = [
