@@ -22,10 +22,9 @@ import {
 } from "../../components/ui/select";
 import { Textarea } from "../../components/ui/textarea";
 import { departments } from "../../data/departments";
-import { useFormStatus } from "react-dom";
 import AddTeacherBTN from "./AddTeacherBTN";
 
-export default function AddTeacherForm({ addTeacherAction, pending }) {
+export default function AddTeacherForm({ addTeacherAction }) {
     const [selectedDepartment, setSelectedDepartment] = useState("");
     const [uploadedImageUrl, setUploadedImageUrl] = useState(null);
     const [isUploading, setIsUploading] = useState(false);

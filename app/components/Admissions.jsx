@@ -58,10 +58,10 @@ export function Admissions() {
 
                 {/* Requirements and Dates */}
                 <div className="grid md:grid-cols-2 gap-8">
-                    {/* Entry Requirements */}
+                    {/* Admission Requirements */}
                     <Card className="p-8 bg-gradient-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900">
                         <h3 className="text-gray-900 dark:text-white mb-6">
-                            Entry Requirements
+                            Admission Requirements
                         </h3>
                         <ul className="space-y-3">
                             {requirements.map((req, idx) => (
@@ -140,10 +140,10 @@ export function Admissions() {
                     <p className="mt-4 text-gray-600 dark:text-gray-300">
                         For more information, contact our admissions office at{" "}
                         <a
-                            href="mailto:admissions@polytechnic.edu"
+                            href="mailto:admissions@basati.edu.bd"
                             className="text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 font-medium transition-all duration-300"
                         >
-                            admissions@polytechnic.edu
+                            admissions@basati.edu.bd
                         </a>
                     </p>
                 </div>

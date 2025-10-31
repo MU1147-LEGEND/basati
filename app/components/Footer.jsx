@@ -23,8 +23,8 @@ export function Footer() {
                                 <GraduationCap className="w-6 h-6 text-white" />
                             </div>
                             <div>
-                                <div className="text-white">
-                                    Polytechnic Institute
+                                <div className="text-white font-bold text-lg">
+                                    BASATI Institute
                                 </div>
                             </div>
                         </div>
@@ -147,27 +147,27 @@ export function Footer() {
                             <li className="flex items-start gap-3">
                                 <MapPin className="w-5 h-5 text-gray-400 flex-shrink-0 mt-0.5" />
                                 <span className="text-gray-400">
-                                    123 Education Road
+                                    Near T-Ali road
                                     <br />
-                                    Dhaka 1200, Bangladesh
+                                    Kabsa, Brahmanbaria
                                 </span>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Phone className="w-5 h-5 text-gray-400 flex-shrink-0" />
                                 <a
-                                    href="tel:+8801234567890"
+                                    href="tel:+8801833878264"
                                     className="text-gray-400 hover:text-white transition-colors"
                                 >
-                                    +880 1234 567890
+                                    +8801833878264
                                 </a>
                             </li>
                             <li className="flex items-center gap-3">
                                 <Mail className="w-5 h-5 text-gray-400 flex-shrink-0" />
                                 <a
-                                    href="mailto:info@polytechnic.edu"
+                                    href="mailto:contact@basati.edu.bd"
                                     className="text-gray-400 hover:text-white transition-colors"
                                 >
-                                    info@polytechnic.edu
+                                    contact@basati.edu.bd
                                 </a>
                             </li>
                         </ul>

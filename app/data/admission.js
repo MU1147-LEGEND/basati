@@ -34,5 +34,4 @@ export const requirements = [
     "Mathematics and English proficiency",
     "Passport-size photographs",
     "Birth certificate and national ID",
-    "Medical fitness certificate",
 ];

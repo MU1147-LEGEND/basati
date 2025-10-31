@@ -1,6 +1,9 @@
+import api from "../api/api";
+
+// Static faculty teachers dummy data
 export const faculty_teachers = [
     {
-        id: 1,
+        _id: 1,
         name: "Md. Momen Khandakar",
         avatar: "https://basati.edu.bd/Application/dist/img/365904262.jpg",
         position: "Principal & Head of Computer Department",
@@ -8,10 +11,10 @@ export const faculty_teachers = [
         specialization: "Artificial Intelligence & Machine Learning",
         email: "momen@basati.edu.bd",
         experience: "15+ years",
-        courses: ["Advanced Programming", "Database Systems"],
+        subjects: ["Advanced Programming", "Database Systems"],
     },
     {
-        id: 2,
+        _id: 2,
         name: "Md. Nadiruzzaman",
         avatar: "https://basati.edu.bd/Application/dist/img/1677753403.png",
         position: "Head of Civil Department",
@@ -19,20 +22,20 @@ export const faculty_teachers = [
         specialization: "Structural Engineering & Design",
         email: "nadiruzzaman@basati.edu.bd",
         experience: "12+ years",
-        courses: ["Structural Analysis", "Construction Management"],
+        subjects: ["Structural Analysis", "Construction Management"],
     },
     {
-        id: 3,
+        _id: 3,
         name: "Md. Abul Kashem",
         position: "Head of Electrical Department",
         education: "M.Sc in Electrical Engineering",
         specialization: "Power Systems & Renewable Energy",
         email: "kashem@basati.edu.bd",
         experience: "14+ years",
-        courses: ["Power Electronics", "Control Systems"],
+        subjects: ["Power Electronics", "Control Systems"],
     },
     {
-        id: 4,
+        _id: 4,
         name: "Maksudul Islam Tuhin",
         avatar: "https://basati.edu.bd/Application/dist/img/287978764.jpeg",
         position: "Senior Lecturer - Computer",
@@ -40,10 +43,10 @@ export const faculty_teachers = [
         specialization: "Web Development & Mobile Apps",
         email: "tuhin@basati.edu.bd",
         experience: "10+ years",
-        courses: ["Web Technologies", "Mobile Development"],
+        subjects: ["Web Technologies", "Mobile Development"],
     },
     {
-        id: 5,
+        _id: 5,
         name: "Rajib Ahmed",
         avatar: "https://basati.edu.bd/Application/dist/img/1208983468.jpg",
         position: "Senior Lecturer - Electrical",
@@ -51,10 +54,10 @@ export const faculty_teachers = [
         specialization: "Power Systems & Renewable Energy",
         email: "ahmed@basati.edu.bd",
         experience: "8+ years",
-        courses: ["Hardware Design", "Embedded Systems"],
+        subjects: ["Hardware Design", "Embedded Systems"],
     },
     {
-        id: 6,
+        _id: 6,
         name: "Mohammad Hridoy",
         avatar: "https://basati.edu.bd/Application/dist/img/1010907644.com-webp-to-jpg-converter%20(1)",
         position: "Lecturer - Electrical",
@@ -62,6 +65,12 @@ export const faculty_teachers = [
         specialization: "Electronics & Automation",
         email: "n.sultana@basati.edu",
         experience: "9+ years",
-        courses: ["Digital Electronics", "Industrial Automation"],
+        subjects: ["Digital Electronics", "Industrial Automation"],
     },
 ];
+
+// Fetch faculty teachers from MongoDB
+export const faculty_teachers_mongo = async () => {
+    const response = await api.get("/teachers");
+    return response.data.data;
+};
