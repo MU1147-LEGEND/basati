@@ -1,4 +1,5 @@
-import api from "../api/api";
+import dbConnect from "../../lib/mongodb";
+import Teacher from "../../lib/models/TeacherSchema";
 
 // Static faculty teachers dummy data
 export const faculty_teachers = [
@@ -71,6 +72,10 @@ export const faculty_teachers = [
 
 // Fetch faculty teachers from MongoDB
 export const faculty_teachers_mongo = async () => {
-    const response = await api.get("/teachers");
-    return response.data.data;
+    // Server-side: fetch teachers directly from MongoDB to avoid making HTTP
+    // requests to the app's own API during prerender/build.
+    await dbConnect();
+    const teachers = await Teacher.find({}).lean();
+    // Normalize _id to string for the client
+    return teachers.map((t) => ({ ...t, _id: t._id.toString() }));
 };

@@ -1,4 +1,5 @@
-import api from "../../api/api";
+import dbConnect from "../../../lib/mongodb";
+import Teacher from "../../../lib/models/TeacherSchema";
 import AddTeacherForm from "./AddTeacherForm";
 
 // Server Action to handle form submission
@@ -31,8 +32,11 @@ async function addTeacher(formData) {
         avatar: imageUrl,
     };
 
-    const response = await api.post("/teachers", newTeacher);
-    console.log("New Teacher Data:", response.data);
+    // Insert directly into MongoDB from the server action to avoid making an
+    // HTTP request to our own API during server-side execution.
+    await dbConnect();
+    const created = await Teacher.create(newTeacher);
+    console.log("New Teacher created:", created);
 }
 
 export default function AddTeacherPage() {
