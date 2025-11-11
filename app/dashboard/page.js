@@ -27,6 +27,10 @@ import { departments } from "../data/departments";
 import { faculty_teachers } from "../data/faculty";
 import { notices } from "../data/notices";
 
+// no cache
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
+
 const AdminDashboard = () => {
     const totalFaculty = faculty_teachers.length;
     const totalDepartments = departments.length;
