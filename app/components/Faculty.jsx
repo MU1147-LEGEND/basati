@@ -5,7 +5,11 @@ import { ImageWithFallback } from "./fallback/ImageWithFallback";
 import { Badge } from "./ui/badge";
 import { Card } from "./ui/card";
 
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
+
 export async function Faculty() {
+
     const facultyMembers = await faculty_teachers_mongo();
     return (
         <section id="faculty" className="py-20 bg-white dark:bg-gray-900/75">
@@ -62,7 +66,7 @@ export async function Faculty() {
                                             variant="secondary"
                                             className="text-xs dark:bg-gray-700"
                                         >
-                                            {member?.experience}
+                                            {member?.experience}+ years
                                         </Badge>
                                     </div>
                                 </div>

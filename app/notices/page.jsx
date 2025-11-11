@@ -1,6 +1,8 @@
-import { Bell, Clock } from "lucide-react";
+import { Clock, Bell } from "lucide-react";
 import { Badge } from "../components/ui/badge";
-import { notices } from "../data/notices";
+import { Button } from "../components/ui/button";
+import { noticesMongo } from "../data/notices";
+import { getIconComponent } from "../../lib/iconMap";
 
 const typeColors = {
     Academic: "bg-blue-100 text-blue-700 border-blue-200",
@@ -9,7 +11,7 @@ const typeColors = {
 };
 
 // Generate structured data for SEO
-const generateStructuredData = () => {
+const generateStructuredData = async () => {
     return {
         "@context": "https://schema.org",
         "@type": "WebPage",
@@ -42,7 +44,7 @@ const generateStructuredData = () => {
         },
         mainEntity: {
             "@type": "CollectionPage",
-            numberOfItems: notices.length,
+            numberOfItems: await noticesMongo().length,
         },
     };
 };
@@ -79,9 +81,13 @@ export const metadata = {
     },
 };
 
-export default function Notice() {
+export const revalidate = 0;
+export const dynamic = "force-dynamic";
+
+export default async function Notice() {
     const structuredData = generateStructuredData();
 
+    const noticesServer = await noticesMongo();
     return (
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
             {/* Structured Data for SEO */}
@@ -159,27 +165,61 @@ export default function Notice() {
                     aria-label="Latest BASATI Notices"
                     className="grid md:grid-cols-2 gap-6"
                 >
-                    {notices.map((notice) => {
-                        const Icon = notice.icon;
+                    {noticesServer.map((notice) => {
+                        const Icon = getIconComponent(notice.icon);
+                        const dateTime =
+                            notice.date instanceof Date
+                                ? notice.date.toLocaleDateString()
+                                : notice.date;
+
+                        // Derive Google Drive file id and filename from server data
+                        const extractDriveIdFromUrl = (url) => {
+                            try {
+                                const u = new URL(url);
+                                const idFromQuery = u.searchParams.get("id");
+                                if (idFromQuery) return idFromQuery;
+                                const match = url.match(/\/d\/([^/]+)/);
+                                if (match) return match[1];
+                            } catch (e) {
+                                // fallback
+                                const match = url && url.match(/[-\w]{25,}/);
+                                return match ? match[0] : null;
+                            }
+                            return null;
+                        };
+
+                        const driveId = notice.driveLink
+                            ? extractDriveIdFromUrl(notice.driveLink)
+                            : null;
+
+                        const filename =
+                            `${notice.title}.pdf` ||
+                            `notice-${notice._id || notice.id}.pdf`;
                         return (
                             <article
-                                key={notice.id}
+                                key={notice._id}
                                 itemScope
                                 itemType="https://schema.org/Announcement"
                             >
                                 <div
                                     className={`dark:bg-gray-800 p-6 rounded-lg border dark:border-gray-700 shadow-sm hover:shadow-md transition-shadow ${
                                         notice.urgent
-                                            ? "border-l-4 border-l-red-500"
+                                            ? "border-l-4 border-l-red-500 dark:border-l-red-500"
                                             : ""
                                     }`}
                                 >
                                     <div className="flex items-start gap-4 mb-4">
                                         <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-lg flex items-center justify-center flex-shrink-0">
-                                            <Icon
-                                                className="w-6 h-6 text-white"
-                                                aria-hidden="true"
-                                            />
+                                            {Icon ? (
+                                                <Icon
+                                                    className="w-6 h-6 text-white"
+                                                    aria-hidden="true"
+                                                />
+                                            ) : (
+                                                <span className="text-white text-2xl">
+                                                    📌
+                                                </span>
+                                            )}
                                         </div>
                                         <div className="flex-1">
                                             <div className="flex items-center gap-2 mb-2">
@@ -213,17 +253,36 @@ export default function Notice() {
                                         {notice.description}
                                     </p>
 
-                                    <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                                        <Clock
-                                            className="w-4 h-4"
-                                            aria-hidden="true"
-                                        />
-                                        <time
-                                            dateTime={notice.date}
-                                            itemProp="datePublished"
-                                        >
-                                            Posted on {notice.date}
-                                        </time>
+                                    <div className="flex items-center justify-between">
+                                        <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
+                                            <Clock
+                                                className="w-4 h-4"
+                                                aria-hidden="true"
+                                            />
+                                            <time
+                                                dateTime={dateTime}
+                                                itemProp="datePublished"
+                                            >
+                                                Posted on {dateTime}
+                                            </time>
+                                        </div>
+
+                                        {driveId ? (
+                                            <Button>
+                                                <a
+                                                    href={`/api/download?id=${encodeURIComponent(
+                                                        driveId
+                                                    )}&filename=${encodeURIComponent(
+                                                        filename
+                                                    )}`}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="inline-block"
+                                                >
+                                                    Download PDF
+                                                </a>
+                                            </Button>
+                                        ) : null}
                                     </div>
                                 </div>
                             </article>
@@ -242,10 +301,10 @@ export default function Notice() {
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <a
-                            href="tel:+8801234567890"
+                            href="tel:+8801833878264"
                             className="text-blue-600 hover:text-blue-700 dark:text-blue-500 dark:hover:text-blue-400 transition-colors"
                         >
-                            📞 +880 1234 567890
+                            📞 +88018 3387 8264
                         </a>
                         <a
                             href="mailto:info@basati.edu.bd"

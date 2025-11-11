@@ -1,4 +1,6 @@
 import { AlertCircle, Bell, Calendar, Megaphone } from "lucide-react";
+import dbConnect from "../../lib/mongodb";
+import NoticeSchema from "../../lib/models/NoticeSchema";
 
 export const notices = [
     {
@@ -9,6 +11,7 @@ export const notices = [
         description:
             "The mid-term examination schedule for all departments has been published. Students are advised to check their respective department notice boards for detailed timetables.",
         urgent: true,
+        pdfLink: "https://drive.google.com/file/d/167wCxwnIMryZAGhzHi6vasIKxg-VxidC/view?usp=sharing",
         icon: Bell,
     },
     {
@@ -102,3 +105,11 @@ export const notices = [
         icon: AlertCircle,
     },
 ];
+
+export const noticesMongo = async () => {
+    await dbConnect();
+
+    const notices = await NoticeSchema.find({}).lean();
+    
+    return notices;
+};

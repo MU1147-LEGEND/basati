@@ -64,7 +64,7 @@ export function Hero() {
                         <div className="text-white/90">Active Students</div>
                     </div>
                     <div className="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
-                        <div className="text-4xl text-yellow-400 mb-2">15+</div>
+                        <div className="text-4xl text-yellow-400 mb-2">{new Date().getFullYear() - 2010}</div>
                         <div className="text-white/90">Years of Excellence</div>
                     </div>
                 </div>

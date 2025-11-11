@@ -84,7 +84,7 @@ export function Footer() {
                             </li>
                             <li>
                                 <a
-                                    href="#faculty"
+                                    href="/#faculty"
                                     className="text-gray-400 hover:text-white transition-colors"
                                 >
                                     Faculty
@@ -158,7 +158,7 @@ export function Footer() {
                                     href="tel:+8801833878264"
                                     className="text-gray-400 hover:text-white transition-colors"
                                 >
-                                    +8801833878264
+                                    +88018 3387 8264
                                 </a>
                             </li>
                             <li className="flex items-center gap-3">
@@ -178,7 +178,7 @@ export function Footer() {
                 <div className="pt-8 border-t border-gray-800">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                         <p className="text-gray-400 text-sm">
-                            © 2025 Polytechnic Institute. All rights reserved.
+                            © 2025 BASATI Institute. All rights reserved.
                         </p>
                         <div className="flex gap-6 items-center">
                             <span>

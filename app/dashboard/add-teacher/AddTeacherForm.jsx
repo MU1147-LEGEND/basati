@@ -94,7 +94,7 @@ export default function AddTeacherForm({ addTeacherAction }) {
                 </div>
             </div>
 
-            <Card className="dark:bg-gray-800">
+            <div className="dark:bg-gray-800 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm">
                 <CardHeader>
                     <CardTitle>Faculty Information</CardTitle>
                     <CardDescription>
@@ -195,7 +195,7 @@ export default function AddTeacherForm({ addTeacherAction }) {
                                     id="experience"
                                     name="experience"
                                     type="text"
-                                    placeholder="e.g., 15+ years"
+                                    placeholder="e.g., 10"
                                 />
                             </div>
 
@@ -269,7 +269,7 @@ export default function AddTeacherForm({ addTeacherAction }) {
                         </div>
                     </form>
                 </CardContent>
-            </Card>
+            </div>
         </div>
     );
 }

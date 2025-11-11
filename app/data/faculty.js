@@ -11,7 +11,7 @@ export const faculty_teachers = [
         education: "PhD in Computer Science",
         specialization: "Artificial Intelligence & Machine Learning",
         email: "momen@basati.edu.bd",
-        experience: "15+ years",
+        experience: "15",
         subjects: ["Advanced Programming", "Database Systems"],
     },
     {
@@ -22,7 +22,7 @@ export const faculty_teachers = [
         education: "M.Sc in Civil Engineering",
         specialization: "Structural Engineering & Design",
         email: "nadiruzzaman@basati.edu.bd",
-        experience: "12+ years",
+        experience: "12",
         subjects: ["Structural Analysis", "Construction Management"],
     },
     {
@@ -32,7 +32,7 @@ export const faculty_teachers = [
         education: "M.Sc in Electrical Engineering",
         specialization: "Power Systems & Renewable Energy",
         email: "kashem@basati.edu.bd",
-        experience: "14+ years",
+        experience: "14",
         subjects: ["Power Electronics", "Control Systems"],
     },
     {
@@ -43,7 +43,7 @@ export const faculty_teachers = [
         education: "M.Sc in Software Engineering",
         specialization: "Web Development & Mobile Apps",
         email: "tuhin@basati.edu.bd",
-        experience: "10+ years",
+        experience: "10",
         subjects: ["Web Technologies", "Mobile Development"],
     },
     {
@@ -54,7 +54,7 @@ export const faculty_teachers = [
         education: "B.Sc in Electrical Engineering",
         specialization: "Power Systems & Renewable Energy",
         email: "ahmed@basati.edu.bd",
-        experience: "8+ years",
+        experience: "8",
         subjects: ["Hardware Design", "Embedded Systems"],
     },
     {
@@ -65,7 +65,7 @@ export const faculty_teachers = [
         education: "M.Sc in Electronics",
         specialization: "Electronics & Automation",
         email: "n.sultana@basati.edu",
-        experience: "9+ years",
+        experience: "9",
         subjects: ["Digital Electronics", "Industrial Automation"],
     },
 ];

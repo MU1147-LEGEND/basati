@@ -1,6 +1,7 @@
 import dbConnect from "../../../lib/mongodb";
 import Teacher from "../../../lib/models/TeacherSchema";
 import AddTeacherForm from "./AddTeacherForm";
+import { revalidatePath } from "next/cache";
 
 // Server Action to handle form submission
 async function addTeacher(formData) {
@@ -36,6 +37,7 @@ async function addTeacher(formData) {
     // HTTP request to our own API during server-side execution.
     await dbConnect();
     const created = await Teacher.create(newTeacher);
+    revalidatePath("/");
     console.log("New Teacher created:", created);
 }
 
